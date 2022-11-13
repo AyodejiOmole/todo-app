@@ -27,6 +27,13 @@ export const Home = () => {
         }
     }, [todo]);
 
+    useEffect(() => {
+        const data = localStorage.getItem("Todo-list");
+        if(data != null) {
+            setTodo(JSON.parse(data));
+        }
+    }, []);
+
     const completeTask = (id) => {
         let answer = window.confirm("Are you really sure you have completed this task?");
         console.log(answer);
