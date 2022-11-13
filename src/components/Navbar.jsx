@@ -12,8 +12,7 @@ const Navbar = () => {
                 
                 <Link to="/offline-todo">
                     <li className='text-lg text-black font-semibold'>Go offline</li>
-                </Link>
-                
+                </Link> 
             </ul>
         </div>
     )

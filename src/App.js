@@ -9,10 +9,12 @@ function App() {
     <div className="">
       <Router>
         <Navbar/>
-        <Routes>
-          <Route path="/" element={<OnlineHome/>}/>
-          <Route path="/offline-todo" element={<OfflineHome/>}/>
-        </Routes>
+        <div className="py-20 w-full px-20">
+          <Routes>
+            <Route path="/" element={<OnlineHome/>}/>
+            <Route path="/offline-todo" element={<OfflineHome/>}/>
+          </Routes>
+        </div>
       </Router>
     </div>
   )
