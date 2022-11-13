@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LoginContext } from ".../context/LoginContext"
+import { LoginContext } from "../Context";
 import Login from './Login';
 
 export const Home = () => {
