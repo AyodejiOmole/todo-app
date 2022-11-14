@@ -16,6 +16,7 @@ export const Home = () => {
         setTodo(todo);
         inputRef.current.value = "";
         localStorage.setItem("Todo-list", JSON.stringify(todo));
+        window.alert(getNumberCompletedTasks());
         setRender(!render);
     }
     const [render, setRender] = useState(false);
@@ -45,6 +46,12 @@ export const Home = () => {
         }
     }
 
+    const getNumberCompletedTasks = () => {
+        return todo.reduce((acc, currentValue) => {
+            if (currentValue.completed) return acc++;
+        }, 0);
+    }
+
     return (
         <div> 
             <div className='flex'>
@@ -55,7 +62,7 @@ export const Home = () => {
             <div className='flex justify-between w-full mt-20'>
                 <div className='w-1/2 h-auto'>
                     <p className={`text-black text-sm text-center my-auto opacity-60 ${todo.length === 0 ? "block" : "hidden"}`}>No tasks added yet.</p>
-                    {todo.map((item, index) => {
+                    {todo.map((item) => {
                         if(!item.completed) {
                             return (
                                 <div key={item.id} className="flex w-auto mb-3">
@@ -69,7 +76,7 @@ export const Home = () => {
 
                 <div className='w-1/2 h-auto'>
                     <p className={`text-black text-sm text-center my-auto opacity-60 ${todo.length === 0 ? "block" : "hidden"}`}>No tasks completed yet.</p>
-                    {todo.map((item, index) => {
+                    {todo.map((item) => {
                         if(item.completed) {
                             return (
                                 <div key={item.id} className="flex w-auto mb-3">
